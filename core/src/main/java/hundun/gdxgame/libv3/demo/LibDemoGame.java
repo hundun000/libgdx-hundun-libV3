@@ -13,7 +13,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Window;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import hundun.gdxgame.libv3.corelib.base.util.DrawableFactory;
+import hundun.gdxgame.corelib.base.util.DrawableFactory;
+
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 public class LibDemoGame extends ApplicationAdapter {
