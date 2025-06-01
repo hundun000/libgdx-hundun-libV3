@@ -34,27 +34,8 @@ gwt {
 
 dependencies {
   implementation project(':core')
+  implementation project(':shared-html')
 
-  implementation "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion"
-  implementation "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion:sources"
-  implementation "com.badlogicgames.gdx:gdx:$gdxVersion:sources"
-  implementation "com.github.crykn.guacamole:core:$guacamoleVersion:sources"
-  implementation "com.github.crykn.guacamole:gdx:$guacamoleVersion:sources"
-  implementation "com.github.crykn:libgdx-screenmanager:$screenManagerVersion:sources"
-  implementation "com.github.tommyettinger:formic:$formicVersion:sources"
-  implementation("com.github.crykn.guacamole:gdx-gwt:$guacamoleVersion:sources"){exclude group: "com.badlogicgames.gdx", module: "gdx-backend-gwt"}
-
-  implementation "com.github.hundun000.libgdx-hundun-lib:corelib:$hundunLibVersion:sources"
-  implementation "com.github.hundun000.libgdx-hundun-lib:gamelib:$hundunLibVersion:sources"
-  implementation "com.github.intrigus.gdx-freetype-gwt:gdx-freetype-gwt:$gdxFreeTypeGwtVersion"
-  implementation "com.github.intrigus.gdx-freetype-gwt:gdx-freetype-gwt:$gdxFreeTypeGwtVersion:sources"
-
-  implementation "com.github.crykn:libgdx-screenmanager:$screenManagerVersion:sources"
-
-  implementation "com.crashinvaders.vfx:gdx-vfx-core:$vfxVersion:sources"
-  implementation "com.crashinvaders.vfx:gdx-vfx-gwt:$vfxVersion"
-  implementation "com.crashinvaders.vfx:gdx-vfx-gwt:$vfxVersion:sources"
-  implementation "com.crashinvaders.vfx:gdx-vfx-effects:$vfxVersion:sources"
 }
 
 import org.akhikhl.gretty.AppBeforeIntegrationTestTask

@@ -1,0 +1,22 @@
+
+dependencies {
+
+  api "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion"
+  api "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion:sources"
+  api "com.badlogicgames.gdx:gdx:$gdxVersion:sources"
+  api "com.github.crykn.guacamole:core:$guacamoleVersion:sources"
+  api "com.github.crykn.guacamole:gdx:$guacamoleVersion:sources"
+  api "com.github.crykn:libgdx-screenmanager:$screenManagerVersion:sources"
+  api "com.github.tommyettinger:formic:$formicVersion:sources"
+  api("com.github.crykn.guacamole:gdx-gwt:$guacamoleVersion:sources"){exclude group: "com.badlogicgames.gdx", module: "gdx-backend-gwt"}
+
+  api "com.github.intrigus.gdx-freetype-gwt:gdx-freetype-gwt:$gdxFreeTypeGwtVersion"
+  api "com.github.intrigus.gdx-freetype-gwt:gdx-freetype-gwt:$gdxFreeTypeGwtVersion:sources"
+
+  api "com.github.crykn:libgdx-screenmanager:$screenManagerVersion:sources"
+
+  api "com.crashinvaders.vfx:gdx-vfx-core:$vfxVersion:sources"
+  api "com.crashinvaders.vfx:gdx-vfx-gwt:$vfxVersion"
+  api "com.crashinvaders.vfx:gdx-vfx-gwt:$vfxVersion:sources"
+  api "com.crashinvaders.vfx:gdx-vfx-effects:$vfxVersion:sources"
+}

@@ -1,3 +1,5 @@
+/shared-html/build/
+
 ## Gradle:
 .gradle/
 gradle-app.setting

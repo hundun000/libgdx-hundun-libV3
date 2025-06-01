@@ -13,8 +13,7 @@
   <inherits name="formic" />
   <inherits name="guacamole_gdx_gwt" />
   <inherits name="hundun.gdxgame.libv3.demo.LibDemoGame" />
-  <inherits name="hundun.gdxgame.corelib.HundunLibCorelib" />
-  <inherits name="hundun.gdxgame.gamelib.HundunLibGamelib" />
+  <inherits name="hundun.gdxgame.libv3.corelib.Shared" />
   <inherits name="libgdx_screenmanager" />
   <inherits name='com.crashinvaders.vfx.GdxVfxCore' />
   <inherits name='com.crashinvaders.vfx.GdxVfxGwt' />
