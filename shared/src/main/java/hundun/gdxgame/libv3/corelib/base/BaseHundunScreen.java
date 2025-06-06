@@ -1,9 +1,11 @@
 package hundun.gdxgame.libv3.corelib.base;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Pixmap.Format;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.crashinvaders.vfx.VfxManager;
@@ -23,9 +25,7 @@ public abstract class BaseHundunScreen<T_GAME extends BaseHundunGame<T_SAVE>, T_
     @Getter
     protected final T_GAME game;
     protected Stage uiStage;
-    protected Stage popupUiStage;
-    protected Stage backUiStage;
-    protected VfxManager vfxManager;
+
 
     // ------ lazy init ------
 
@@ -49,48 +49,32 @@ public abstract class BaseHundunScreen<T_GAME extends BaseHundunGame<T_SAVE>, T_
 
     protected void baseInit(ScreenArg arg) {
         this.uiStage = new Stage(new FitViewport(game.getMainViewportWidth(), game.getMainViewportHeight()));
-        this.popupUiStage = new Stage(new FitViewport(game.getMainViewportWidth(), game.getMainViewportHeight()));
-        this.backUiStage = new Stage(new FitViewport(game.getMainViewportWidth(), game.getMainViewportHeight()));
 
-        // VfxManager is a host for the effects.
-        // It captures rendering into internal off-screen buffer and applies a chain of defined effects.
-        // Off-screen buffers may have any pixel format, for this example we will use RGBA8888.
-        vfxManager = new VfxManager(Format.RGBA8888);
     }
 
     @Override
     public void render(float delta) {
-//        Gdx.gl.glClearColor(1, 1, 1, 1);
-//        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        ScreenUtils.clear(0f, 0f, 0f, 1f);
 
         game.clockDelta(delta, this);
 
-        backUiStage.getViewport().apply();
         uiStage.getViewport().apply();
-        popupUiStage.getViewport().apply();
 
-        backUiStage.act();
         uiStage.act();
-        popupUiStage.act();
 
         // ====== be careful of draw order ======
 
-        vfxManager.cleanUpBuffers();
-        vfxManager.beginInputCapture();
+
 
         // ------ only backUi and UI use vfx ------
-        backUiStage.draw();
 
         belowUiStageDraw(delta);
         uiStage.draw();
         aboveUiStageDraw(delta);
 
-        vfxManager.endInputCapture();
-        vfxManager.applyEffects();
-        vfxManager.renderToScreen();
+
 
         // ------ popupUi out of vfx ------
-        popupUiStage.draw();
         renderPopupAnimations(delta);
     }
 
@@ -126,8 +110,6 @@ public abstract class BaseHundunScreen<T_GAME extends BaseHundunGame<T_SAVE>, T_
 //                width,
 //                height
 //                ));
-        this.backUiStage.getViewport().update(width, height, true);
         this.uiStage.getViewport().update(width, height, true);
-        this.popupUiStage.getViewport().update(width, height, true);
     }
 }

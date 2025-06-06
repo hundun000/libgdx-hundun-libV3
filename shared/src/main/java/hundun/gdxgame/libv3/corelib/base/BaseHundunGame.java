@@ -46,8 +46,8 @@ public abstract class BaseHundunGame<T_SAVE> extends ManagedGame<ManagedScreen, 
         String mainSkinFilePath;
 
         public static GameArg DEFAULT = GameArg.builder()
-            .viewportHeight(640)
-            .viewportWidth(480)
+            .viewportWidth(640)
+            .viewportHeight(480)
             .build();
     }
 
