@@ -9,7 +9,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.crashinvaders.vfx.VfxManager;
 import de.eskalon.commons.screen.ManagedScreen;
 import hundun.gdxgame.libv3.corelib.gamelib.starter.listerner.ILogicFrameListener;
-import lombok.Getter;
+import lombok.*;
 import org.jetbrains.annotations.Nullable;
 
 
@@ -22,37 +22,35 @@ import org.jetbrains.annotations.Nullable;
 public abstract class BaseHundunScreen<T_GAME extends BaseHundunGame<T_SAVE>, T_SAVE> extends ManagedScreen implements ILogicFrameListener {
     @Getter
     protected final T_GAME game;
-    @Nullable
-    protected final Viewport sharedViewport;
     protected Stage uiStage;
     protected Stage popupUiStage;
     protected Stage backUiStage;
     protected VfxManager vfxManager;
-    protected Table uiRootTable;
-    protected Table popupRootTable;
 
     // ------ lazy init ------
 
-    public BaseHundunScreen(T_GAME game, @Nullable Viewport sharedViewport) {
+    @Data
+    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class ScreenArg {
+        boolean fitViewport;
+
+        public static ScreenArg DEFAULT = ScreenArg.builder()
+            .build();
+    }
+    public BaseHundunScreen(T_GAME game) {
+        this(game, ScreenArg.DEFAULT);
+    }
+    public BaseHundunScreen(T_GAME game, ScreenArg arg) {
         this.game = game;
-        //OrthographicCamera camera = new OrthographicCamera();
-        //this.sharedViewport = new FitViewport(game.getWidth(), game.getHeight(), camera);
-        this.sharedViewport = sharedViewport;
-        baseInit();
+        baseInit(arg);
     }
 
-    protected void baseInit() {
-        this.uiStage = new Stage(sharedViewport != null ? sharedViewport : new FitViewport(game.getMainViewportWidth(), game.getMainViewportHeight()), game.getBatch());
-        this.popupUiStage = new Stage(sharedViewport != null ? sharedViewport : new FitViewport(game.getMainViewportWidth(), game.getMainViewportHeight()), game.getBatch());
-        this.backUiStage = new Stage(sharedViewport != null ? sharedViewport : new FitViewport(game.getMainViewportWidth(), game.getMainViewportHeight()), game.getBatch());
-
-        uiRootTable = new Table();
-        uiRootTable.setFillParent(true);
-        uiStage.addActor(uiRootTable);
-
-        popupRootTable = new Table();
-        popupRootTable.setFillParent(true);
-        popupUiStage.addActor(popupRootTable);
+    protected void baseInit(ScreenArg arg) {
+        this.uiStage = new Stage(new FitViewport(game.getMainViewportWidth(), game.getMainViewportHeight()));
+        this.popupUiStage = new Stage(new FitViewport(game.getMainViewportWidth(), game.getMainViewportHeight()));
+        this.backUiStage = new Stage(new FitViewport(game.getMainViewportWidth(), game.getMainViewportHeight()));
 
         // VfxManager is a host for the effects.
         // It captures rendering into internal off-screen buffer and applies a chain of defined effects.
@@ -93,7 +91,7 @@ public abstract class BaseHundunScreen<T_GAME extends BaseHundunGame<T_SAVE>, T_
 
         // ------ popupUi out of vfx ------
         popupUiStage.draw();
-        renderPopupAnimations(delta, game.getBatch());
+        renderPopupAnimations(delta);
     }
 
     protected void belowUiStageDraw(float delta) {
@@ -104,7 +102,7 @@ public abstract class BaseHundunScreen<T_GAME extends BaseHundunGame<T_SAVE>, T_
         // base-class do nothing
     }
 
-    protected void renderPopupAnimations(float delta, SpriteBatch spriteBatch) {
+    protected void renderPopupAnimations(float delta) {
         // base-class do nothing
     }
 
@@ -119,12 +117,10 @@ public abstract class BaseHundunScreen<T_GAME extends BaseHundunGame<T_SAVE>, T_
     }
 
     @Override
-    public void hide() {
-
-    }
-
-    @Override
     public void resize(int width, int height) {
+        // If the window is minimized on a desktop (LWJGL3) platform, width and height are 0, which causes problems.
+        // In that case, we don't resize anything, and wait for the window to be a normal size before updating.
+        if(width <= 0 || height <= 0) return;
 //        Gdx.app.log(this.getClass().getSimpleName(), JavaFeatureForGwt.stringFormat(
 //                "resize by width = %s, height = %s",
 //                width,
