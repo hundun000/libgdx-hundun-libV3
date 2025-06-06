@@ -14,6 +14,8 @@
   <inherits name="guacamole_gdx_gwt" />
   <inherits name="hundun.gdxgame.libv3.demo.LibDemoGame" />
   <inherits name="hundun.gdxgame.libv3.corelib.Shared" />
+  <inherits name="hundun.gdxgame.libv3.corelib.html.SharedHtml" />
+  <inherits name="com.github.nmorel.gwtjackson.GwtJackson" />
   <inherits name="libgdx_screenmanager" />
   <inherits name='com.crashinvaders.vfx.GdxVfxCore' />
   <inherits name='com.crashinvaders.vfx.GdxVfxGwt' />
