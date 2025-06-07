@@ -3,7 +3,7 @@ package hundun.gdxgame.libv3.demo.gwt;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.backends.gwt.GwtApplication;
 import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
-import hundun.gdxgame.libv3.corelib.html.GwtPreferencesSaveTool;
+import hundun.gdxgame.libv3.demo.GwtPreferencesSaveTool;
 import hundun.gdxgame.libv3.demo.LibDemoGame;
 
 /** Launches the GWT application. */

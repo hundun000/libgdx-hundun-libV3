@@ -1,4 +1,4 @@
-package hundun.gdxgame.libv3.corelib.html;
+package hundun.gdxgame.libv3.demo;
 
 import com.badlogic.gdx.Gdx;
 import com.github.nmorel.gwtjackson.client.ObjectMapper;
