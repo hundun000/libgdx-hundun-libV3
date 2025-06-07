@@ -1,3 +1,5 @@
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
 eclipse.project.name = appName + '-shared'
 
 apply plugin: "maven-publish"
@@ -27,5 +29,4 @@ publishing {
 
 java {
   withSourcesJar()
-  withJavadocJar()
 }

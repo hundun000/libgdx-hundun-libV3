@@ -1,3 +1,5 @@
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
 apply plugin: "maven-publish"
 
 dependencies {
@@ -39,5 +41,4 @@ publishing {
 
 java {
   withSourcesJar()
-  withJavadocJar()
 }
