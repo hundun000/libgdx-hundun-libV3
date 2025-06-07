@@ -1,5 +1,7 @@
 eclipse.project.name = appName + '-shared'
 
+apply plugin: "maven-publish"
+
 dependencies {
   api "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
   api "com.badlogicgames.gdx:gdx:$gdxVersion"
@@ -9,4 +11,16 @@ dependencies {
   api "com.crashinvaders.vfx:gdx-vfx-effects:$vfxVersion"
 
   api 'org.jetbrains:annotations:26.0.2'
+}
+
+publishing {
+  publications {
+    mavenJava(MavenPublication) {
+      // useless for jitpack: groupId = GROUP
+      artifactId = ARTIFACT_ID_START + "-shared"
+      // useless for jitpack: version = VERSION
+
+      from components.java
+    }
+  }
 }

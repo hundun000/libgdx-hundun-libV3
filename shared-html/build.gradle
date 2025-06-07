@@ -1,3 +1,4 @@
+apply plugin: "maven-publish"
 
 dependencies {
   api project(":core")
@@ -22,4 +23,16 @@ dependencies {
   api "com.crashinvaders.vfx:gdx-vfx-gwt:$vfxVersion"
   api "com.crashinvaders.vfx:gdx-vfx-gwt:$vfxVersion:sources"
   api "com.crashinvaders.vfx:gdx-vfx-effects:$vfxVersion:sources"
+}
+
+publishing {
+  publications {
+    mavenJava(MavenPublication) {
+      // useless for jitpack: groupId = GROUP
+      artifactId = ARTIFACT_ID_START + "-shared-html"
+      // useless for jitpack: version = VERSION
+
+      from components.java
+    }
+  }
 }

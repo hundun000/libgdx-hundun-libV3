@@ -18,7 +18,9 @@ buildscript {
 allprojects {
   apply plugin: 'eclipse'
   apply plugin: 'idea'
-
+  ext {
+    ARTIFACT_ID_START = "hundun"
+  }
   // This allows you to "Build and run using IntelliJ IDEA", an option in IDEA's Settings.
   idea {
     module {
