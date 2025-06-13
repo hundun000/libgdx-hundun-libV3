@@ -3,8 +3,6 @@
 apply plugin: "maven-publish"
 
 dependencies {
-  api project(":shared")
-
   api "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion"
   api "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion:sources"
   api "com.badlogicgames.gdx:gdx:$gdxVersion:sources"
@@ -18,7 +16,10 @@ dependencies {
 
   api "com.github.intrigus.gdx-freetype-gwt:gdx-freetype-gwt:$gdxFreeTypeGwtVersion"
   api "com.github.intrigus.gdx-freetype-gwt:gdx-freetype-gwt:$gdxFreeTypeGwtVersion:sources"
-
+  api "com.github.raeleus.stripe:stripe:$raeleusStripeVersion:sources"
+  // stripe内的依赖，因为sources依赖无法传递?
+  api "com.github.tommyettinger:regexodus:0.1.15:sources"
+  api "com.github.raeleus.stripe:freetype:$raeleusStripeVersion:sources"
   api "com.github.crykn:libgdx-screenmanager:$screenManagerVersion:sources"
 
   api "com.crashinvaders.vfx:gdx-vfx-core:$vfxVersion:sources"

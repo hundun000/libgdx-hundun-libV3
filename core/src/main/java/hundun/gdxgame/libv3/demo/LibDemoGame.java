@@ -26,7 +26,12 @@ public class LibDemoGame extends BaseHundunGame<RootSaveData> {
     MenuScreen menuScreen;
 
     public LibDemoGame(ISaveTool<RootSaveData> saveTool) {
-        super(GameArg.DEFAULT);
+        super(
+            GameArg.DEFAULT
+                .mainSkinFilePath("skins/FreetypeDemo/IdleMushroom.json")
+                .freeTypeSkin(true)
+                .build()
+        );
         this.saveHandler = new SaveHandler(this.getFrontend(), saveTool);
     }
 

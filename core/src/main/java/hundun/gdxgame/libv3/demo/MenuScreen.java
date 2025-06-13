@@ -37,7 +37,7 @@ public class MenuScreen extends BaseHundunScreen<LibDemoGame, RootSaveData> {
         Image image = new Image(DrawableFactory.getViewportBasedAlphaBoard(game.getMainViewportWidth(), game.getMainViewportHeight()));
         uiStage.addActor(image);
 
-        Window window = new Window("Example screen", game.getMainSkin(), "border");
+        Window window = new Window("Example screen", game.getMainSkin());
         window.defaults().pad(4f);
         window.add("This is a simple Scene2D view.").row();
         final TextButton button = new TextButton("Click me!", game.getMainSkin());

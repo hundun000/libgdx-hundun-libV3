@@ -9,18 +9,22 @@
   <public path="public_html" />
 
   <!-- "Inherits" lines are how GWT knows where to look for code and configuration in other projects or libraries. -->
+  <!-- 使用hundun-lib的项目需要抄的部分 part1 -->
   <inherits name="com.badlogic.gdx.backends.gdx_backends_gwt" />
+  <inherits name="com.badlogic.gdx.graphics.g2d.freetype.freetype-gwt" />
   <inherits name="formic" />
   <inherits name="guacamole_gdx_gwt" />
-  <inherits name="hundun.gdxgame.libv3.demo.LibDemoGame" />
-  <inherits name="hundun.gdxgame.libv3.corelib.Shared" />
-  <inherits name="hundun.gdxgame.libv3.corelib.html.SharedHtml" />
   <inherits name="com.github.nmorel.gwtjackson.GwtJackson" />
   <inherits name="libgdx_screenmanager" />
   <inherits name='com.crashinvaders.vfx.GdxVfxCore' />
   <inherits name='com.crashinvaders.vfx.GdxVfxGwt' />
   <inherits name='com.crashinvaders.vfx.GdxVfxEffects' />
-
+  <inherits name="com.ray3k.stripe" />
+  <!-- 使用hundun-lib的项目需要抄的部分 part2 -->
+  <inherits name="hundun.gdxgame.libv3.corelib.Shared" />
+  <inherits name="hundun.gdxgame.libv3.corelib.html.SharedHtml" />
+  <!-- 本项目内部依赖 -->
+  <inherits name="hundun.gdxgame.libv3.demo.LibDemoGame" />
   <!-- You must change this if you rename packages later, or rename GwtLauncher. -->
   <entry-point class="hundun.gdxgame.libv3.demo.gwt.GwtLauncher" />
 
