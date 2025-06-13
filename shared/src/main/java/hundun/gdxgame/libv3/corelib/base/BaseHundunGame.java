@@ -2,6 +2,7 @@ package hundun.gdxgame.libv3.corelib.base;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.ray3k.stripe.FreeTypeSkin;
 import de.eskalon.commons.core.ManagedGame;
 import de.eskalon.commons.screen.ManagedScreen;
 import de.eskalon.commons.screen.transition.ScreenTransition;
@@ -11,6 +12,8 @@ import hundun.gdxgame.libv3.corelib.gamelib.starter.listerner.ILogicFrameListene
 import lombok.*;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Objects;
+
 
 public abstract class BaseHundunGame<T_SAVE> extends ManagedGame<ManagedScreen, ScreenTransition> {
     public boolean debugMode;
@@ -18,7 +21,6 @@ public abstract class BaseHundunGame<T_SAVE> extends ManagedGame<ManagedScreen, 
     protected final int mainViewportWidth;
     @Getter
     protected final int mainViewportHeight;
-    @Nullable
     @Getter
     protected LogicFrameHelper logicFrameHelper;
     final GameArg gameArg;
@@ -44,6 +46,7 @@ public abstract class BaseHundunGame<T_SAVE> extends ManagedGame<ManagedScreen, 
         Integer logicFramePerSecond;
         @Nullable
         String mainSkinFilePath;
+        boolean freeTypeSkin;
 
         public static GameArg DEFAULT = GameArg.builder()
             .viewportWidth(640)
@@ -56,17 +59,18 @@ public abstract class BaseHundunGame<T_SAVE> extends ManagedGame<ManagedScreen, 
         this.mainViewportWidth = gameArg.viewportWidth;
         this.mainViewportHeight = gameArg.viewportHeight;
         this.frontend = new LibgdxFrontend();
-        this.logicFrameHelper = gameArg.logicFramePerSecond != null ? new LogicFrameHelper(gameArg.logicFramePerSecond) : null;
+        this.logicFrameHelper = new LogicFrameHelper(gameArg.logicFramePerSecond);
     }
 
     /**
      * 只依赖Gdx static的成员
      */
     protected void createAfterGdxStatic() {
-        if (gameArg.mainSkinFilePath != null) {
-            this.mainSkin = new Skin(Gdx.files.internal(gameArg.mainSkinFilePath));
-        } else  {
-            this.mainSkin = new Skin(Gdx.files.internal("ui/uiskin.json"));
+        String skinPath = Objects.requireNonNullElse(gameArg.mainSkinFilePath, "ui/uiskin.json");
+        if (!gameArg.freeTypeSkin) {
+            this.mainSkin = new Skin(Gdx.files.internal(skinPath));
+        } else {
+            this.mainSkin = new FreeTypeSkin(Gdx.files.internal(skinPath));
         }
         if (saveHandler != null) {
             saveHandler.lazyInitOnGameCreate();
