@@ -3,7 +3,12 @@ eclipse.project.name = appName + '-core'
 
 dependencies {
   api project(':shared-core')
-
+  // ----- libgdx ------
+  api "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
+  api "com.badlogicgames.gdx:gdx:$gdxVersion"
+  // ----- libgdx 第三方 ------
+  api "com.github.crykn:libgdx-screenmanager:$screenManagerVersion"
+  // ----- liftoff自带，可能用不上 -----
   api "com.github.crykn.guacamole:core:$guacamoleVersion"
   api "com.github.crykn.guacamole:gdx:$guacamoleVersion"
   api "com.github.tommyettinger:formic:$formicVersion"
