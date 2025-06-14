@@ -136,6 +136,7 @@ tasks.register('addSource') {
     sourceSets.main.compileClasspath += files(project(':core').sourceSets.main.allJava.srcDirs)
     sourceSets.main.compileClasspath += files("../core/build/generated/sources/annotationProcessor/java/main")
     sourceSets.main.compileClasspath += files(sourceSets.main.output.resourcesDir)
+    sourceSets.main.compileClasspath += files(project(':shared-common').sourceSets.main.allJava.srcDirs)
     sourceSets.main.compileClasspath += files(project(':shared-core').sourceSets.main.allJava.srcDirs)
     sourceSets.main.compileClasspath += files(project(':shared-html').sourceSets.main.allJava.srcDirs)
   }

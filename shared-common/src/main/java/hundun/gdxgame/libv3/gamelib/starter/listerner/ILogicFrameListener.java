@@ -1,4 +1,4 @@
-package hundun.gdxgame.libv3.corelib.gamelib.starter.listerner;
+package hundun.gdxgame.libv3.gamelib.starter.listerner;
 /**
  * @author hundun
  * Created on 2021/11/05

@@ -1,26 +1,21 @@
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
-eclipse.project.name = appName + '-shared-core'
+eclipse.project.name = appName + '-shared-common'
 
 apply plugin: "maven-publish"
 
 dependencies {
-  api project(":shared-common")
-  api "com.github.raeleus.stripe:freetype:$raeleusStripeVersion"
-  api "com.badlogicgames.gdx:gdx:$gdxVersion"
-
-  api "com.github.crykn:libgdx-screenmanager:$screenManagerVersion"
-  api "com.crashinvaders.vfx:gdx-vfx-core:$vfxVersion"
-  api "com.crashinvaders.vfx:gdx-vfx-effects:$vfxVersion"
 
   api 'org.jetbrains:annotations:26.0.2'
+
+
 }
 
 publishing {
   publications {
     mavenJava(MavenPublication) {
       // useless for jitpack: groupId = GROUP
-      artifactId = ARTIFACT_ID_START + "-shared-core"
+      artifactId = ARTIFACT_ID_START + "-shared-common"
       // useless for jitpack: version = VERSION
 
       // temp

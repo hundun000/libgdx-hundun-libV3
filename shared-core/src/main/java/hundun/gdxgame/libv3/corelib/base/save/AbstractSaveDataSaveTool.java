@@ -3,7 +3,7 @@ package hundun.gdxgame.libv3.corelib.base.save;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
 
-import hundun.gdxgame.libv3.corelib.gamelib.base.save.ISaveTool;
+import hundun.gdxgame.libv3.gamelib.base.save.ISaveTool;
 
 /**
  * @author hundun

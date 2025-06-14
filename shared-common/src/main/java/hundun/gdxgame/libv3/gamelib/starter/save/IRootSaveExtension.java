@@ -1,4 +1,4 @@
-package hundun.gdxgame.libv3.corelib.gamelib.starter.save;
+package hundun.gdxgame.libv3.gamelib.starter.save;
 /**
  * @author hundun
  * Created on 2023/03/02

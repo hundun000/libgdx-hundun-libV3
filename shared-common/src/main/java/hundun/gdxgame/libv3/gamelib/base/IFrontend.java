@@ -1,4 +1,4 @@
-package hundun.gdxgame.libv3.corelib.gamelib.base;
+package hundun.gdxgame.libv3.gamelib.base;
 /**
  * @author hundun
  * Created on 2022/08/29

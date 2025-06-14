@@ -1,6 +1,6 @@
 package hundun.gdxgame.libv3.demo.save;
 
-import hundun.gdxgame.libv3.corelib.gamelib.starter.save.IRootSaveExtension;
+import hundun.gdxgame.libv3.gamelib.starter.save.IRootSaveExtension;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

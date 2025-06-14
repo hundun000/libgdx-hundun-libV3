@@ -1,4 +1,4 @@
-package hundun.gdxgame.libv3.corelib.gamelib.base.util;
+package hundun.gdxgame.libv3.gamelib.base.util;
 
 import java.util.*;
 import java.util.stream.Collector;

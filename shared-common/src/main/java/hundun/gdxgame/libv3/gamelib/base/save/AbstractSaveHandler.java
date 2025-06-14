@@ -1,6 +1,6 @@
-package hundun.gdxgame.libv3.corelib.gamelib.base.save;
+package hundun.gdxgame.libv3.gamelib.base.save;
 
-import hundun.gdxgame.libv3.corelib.gamelib.base.IFrontend;
+import hundun.gdxgame.libv3.gamelib.base.IFrontend;
 
 /**
  * @author hundun

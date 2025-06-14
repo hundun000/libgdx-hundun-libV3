@@ -1,5 +1,6 @@
 /shared-html/build/
 /shared-core/build/
+/shared-common/build/
 
 ## Gradle:
 .gradle/

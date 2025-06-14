@@ -5,8 +5,8 @@ import java.util.Arrays;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 
-import hundun.gdxgame.libv3.corelib.gamelib.base.IFrontend;
-import hundun.gdxgame.libv3.corelib.gamelib.base.util.JavaFeatureForGwt;
+import hundun.gdxgame.libv3.gamelib.base.IFrontend;
+import hundun.gdxgame.libv3.gamelib.base.util.JavaFeatureForGwt;
 
 /**
  * @author hundun
