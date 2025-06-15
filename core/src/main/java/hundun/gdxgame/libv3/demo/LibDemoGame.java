@@ -4,7 +4,7 @@ import hundun.gdxgame.libv3.corelib.base.BaseHundunGame;
 import hundun.gdxgame.libv3.gamelib.base.save.ISaveTool;
 import hundun.gdxgame.libv3.gamelib.starter.listerner.ILogicFrameListener;
 import hundun.gdxgame.libv3.demo.save.RootSaveData;
-import hundun.gdxgame.libv3.demo.save.SaveHandler;
+import hundun.gdxgame.libv3.demo.save.DemoSaveHandler;
 
 
 public class LibDemoGame extends BaseHundunGame<RootSaveData> {
@@ -18,7 +18,7 @@ public class LibDemoGame extends BaseHundunGame<RootSaveData> {
                 .freeTypeSkin(true)
                 .build()
         );
-        this.saveHandler = new SaveHandler(this.getFrontend(), saveTool);
+        this.saveHandler = new DemoSaveHandler(this.getFrontend(), saveTool);
     }
 
     @Override

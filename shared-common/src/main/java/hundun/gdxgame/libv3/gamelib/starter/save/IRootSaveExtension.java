@@ -1,7 +1,7 @@
 package hundun.gdxgame.libv3.gamelib.starter.save;
 /**
- * @author hundun
- * Created on 2023/03/02
+ * 约定T_ROOT_SAVE内分细分为T_SYSTEM_SAVE和T_GAMEPLAY_SAVE;
+ * 并要求提供三者对于新游戏时初始状态的工厂方法。
  */
 public interface IRootSaveExtension<T_ROOT_SAVE, T_SYSTEM_SAVE, T_GAMEPLAY_SAVE> {
 

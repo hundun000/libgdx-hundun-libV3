@@ -8,14 +8,14 @@ import hundun.gdxgame.libv3.demo.save.SystemSettingSaveData.Language;
 
 import java.util.*;
 
-public class SaveHandler extends PairChildrenSaveHandler<RootSaveData, SystemSettingSaveData, GameplaySaveData> {
+public class DemoSaveHandler extends PairChildrenSaveHandler<RootSaveData, SystemSettingSaveData, GameplaySaveData> {
 
     static final String SINGLETON = "SINGLETON";
 
     int worldSize = 8;
     double treeTileRate = 0.25;
 
-    public SaveHandler(IFrontend frontEnd, ISaveTool<RootSaveData> saveTool) {
+    public DemoSaveHandler(IFrontend frontEnd, ISaveTool<RootSaveData> saveTool) {
         super(frontEnd, RootSaveData.RootSaveExtension.INSTANCE, saveTool);
 
     }

@@ -111,16 +111,27 @@ public abstract class PairChildrenSaveHandler<T_ROOT_SAVE, T_SYSTEM_SAVE, T_GAME
                 );
     }
 
+    /**
+     * 读档发生时，将读出的`T_GAMEPLAY_SAVE`交给此Handler使用；
+     * 存档发生时，要求此Handler修改`T_GAMEPLAY_SAVE`作为存档数据；
+     */
     public interface ISubGameplaySaveHandler<T_GAMEPLAY_SAVE> {
         void applyGameplaySaveData(T_GAMEPLAY_SAVE gameplaySave);
         void currentSituationToGameplaySaveData(T_GAMEPLAY_SAVE gameplaySave);
     }
 
+    /**
+     * 读档发生时，将读出的`T_SYSTEM_SAVE`交给此Handler使用；
+     * 存档发生时，要求此Handler修改`T_SYSTEM_SAVE`作为存档数据；
+     */
     public interface ISubSystemSettingSaveHandler<T_SYSTEM_SAVE> {
         void applySystemSetting(T_SYSTEM_SAVE systemSettingSave);
         void currentSituationToSystemSetting(T_SYSTEM_SAVE systemSettingSave);
     }
 
+    /**
+     * 注册后才能在读档/存档时被调用；
+     */
     @SuppressWarnings("unchecked")
     @Override
     public void registerSubHandler(Object object) {

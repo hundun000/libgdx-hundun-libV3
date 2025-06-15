@@ -1,8 +1,7 @@
 package hundun.gdxgame.libv3.gamelib.base.save;
 
 /**
- * @author hundun
- * Created on 2022/04/08
+ * 待游戏引擎实现的工具方法
  */
 public interface ISaveTool<T_SAVE> {
     void lazyInitOnGameCreate();
